@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Net.Sockets;
 using System.IO;
-using Microsoft.Win32;
+using System.Net;
+using System.Net.NetworkInformation;
 
 namespace IRCBot
 {
@@ -103,6 +104,7 @@ namespace IRCBot
                     {
                         sendData("JOIN", config.channel); //join assigned channel
                         config.joined = true;
+                        me(config.channel, "whirrs idly");
                     }
                 }
 
@@ -135,7 +137,37 @@ namespace IRCBot
                     me(config.channel, datal.Split(new char[] { ':' }, 3)[2].Replace("when parzibot ", ""));
                 }
 
-                if (datal.Contains("parzibot") && datal.Contains("leave") && (datal.Contains("irc") || datal.Contains("channel") || datal.Contains("chat")))
+                if (datal.Contains("what time is it"))
+                {
+                    chat(config.channel, "It is currently " + DateTime.Now.ToString("h:mm:ss tt"));
+                }
+
+                if (datal.Contains("parzibot, ping"))
+                {
+                    string web = datal.Replace("parzibot, ping ", "\u1106").Split('\u1106')[1];
+                    try
+                    {
+                        web = IPAddress.Parse(web).ToString();
+                    }
+                    catch
+                    {
+                        if (!web.Contains("www.") && !web.Contains("localhost"))
+                        {
+                            web = "www." + web;
+                        }
+                    }
+                    try
+                    {
+                        PingReply p = new Ping().Send(web);
+                        chat(config.channel, "Pinged " + web + ": " + p.Status + ", " + p.RoundtripTime + "ms");
+                    }
+                    catch
+                    {
+                        chat(config.channel, "Unable to ping " + web);
+                    }
+                }
+
+                if (datal.Contains("parzibot") && (datal.Contains("leave") && datal.Contains("quit")) && (datal.Contains("irc") || datal.Contains("channel") || datal.Contains("chat")))
                 {
                     sendData("QUIT", null);
                     shouldRun = false;
