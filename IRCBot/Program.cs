@@ -6,7 +6,7 @@ using System.Net.Sockets;
 using System.IO;
 using Microsoft.Win32;
 
-namespace EpicIRC
+namespace IRCBot
 {
     internal struct IRCConfig
     {
@@ -116,18 +116,18 @@ namespace EpicIRC
                 {
                     string sender = data.Split('!')[0].Replace(":", "");
                     Console.WriteLine(data+"\n");
-                    chat("#Capacity-Dev","Hello, "+sender+"!");
+                    chat(config.channel, "Hello, " + sender + "!");
                 }
 
                 if (datal.Contains("parzibot copycat"))
                 {
                     copycat = !copycat;
-                    chat("#Capacity-Dev", "Copycat now " + copycat.ToString());
+                    chat(config.channel, "Copycat now " + copycat.ToString());
                 }
 
-                if (datal.Contains("parzibot, you"))
+                if (datal.Contains("when parzibot"))
                 {
-                    me("#Capacity-Dev", datal.Split(':')[2].Replace("parzibot, you ", ""));
+                    me(config.channel, datal.Split(new char[] { ':' }, 3)[2].Replace("when parzibot ", ""));
                 }
 
                 if (datal.Contains("parzibot") && datal.Contains("leave"))
@@ -136,9 +136,15 @@ namespace EpicIRC
                     shouldRun = false;
                 }
 
+                if (datal.Contains("parzibot") && datal.Contains("power level"))
+                {
+                    string sender = data.Split('!')[0].Replace(":", "");
+                    chat(config.channel, sender + ": It's over 9000!");
+                }
+
                 if (copycat)
                 {
-                    chat("#Capacity-Dev", data.Split(':')[2]);
+                    chat(config.channel, data.Split(new char[] { ':' }, 3)[2]);
                 }
 
                 /*if (ex.Length > 4) //is the command received long enough to be a bot command?

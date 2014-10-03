@@ -3,3 +3,8 @@ c:\users\colby_000\documents\Visual C#\IRCBot\IRCBot\bin\Debug\IRCBot.pdb
 c:\users\colby_000\documents\Visual C#\IRCBot\IRCBot\obj\x86\Debug\IRCBot.exe
 c:\users\colby_000\documents\Visual C#\IRCBot\IRCBot\obj\x86\Debug\IRCBot.pdb
 C:\Users\colby_000\documents\Visual C#\IRCBot\IRCBot\obj\x86\Debug\IRCBot.csprojResolveAssemblyReference.cache
+C:\Users\colby_000\Desktop\GitHub\IRCBot\IRCBot\obj\x86\Debug\IRCBot.exe
+C:\Users\colby_000\Desktop\GitHub\IRCBot\IRCBot\obj\x86\Debug\IRCBot.pdb
+C:\Users\colby_000\Desktop\GitHub\IRCBot\IRCBot\bin\Debug\IRCBot.exe
+C:\Users\colby_000\Desktop\GitHub\IRCBot\IRCBot\bin\Debug\IRCBot.pdb
+C:\Users\colby_000\Desktop\GitHub\IRCBot\IRCBot\obj\x86\Debug\IRCBot.csprojResolveAssemblyReference.cache
