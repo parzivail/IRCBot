@@ -96,7 +96,7 @@ namespace IRCBot
             {
                 data = sr.ReadLine();
                 datal = data.ToLower();
-                //Console.WriteLine(data + "\n"); //Used for debugging
+                Console.WriteLine(data + "\n"); //Used for debugging
                 ex = data.Split(new char[] { ' ' }, 5); //Split the data into 5 parts
                 if (!config.joined) //if we are not yet in the assigned channel
                 {
