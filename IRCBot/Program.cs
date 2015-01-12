@@ -102,6 +102,8 @@ namespace IRCBot
                 {
                     if (ex[1] == "MODE") //Normally one of the last things to be sent (usually follows motd)
                     {
+                        //sendData("", "msg NickSrv register password colby.newman2000@gmail.com");
+                        sendData("", "msg NickSrv identify password");
                         sendData("JOIN", config.channel); //join assigned channel
                         config.joined = true;
                         me(config.channel, "whirrs idly");
@@ -112,7 +114,6 @@ namespace IRCBot
                 {
                     sendData("PONG", ex[1]);
                 }
-
 
                 if ((datal.Contains("hey") || datal.Contains("hello") || datal.Contains("hi")) && datal.Contains("parzibot"))
                 {
@@ -125,6 +126,17 @@ namespace IRCBot
                 {
                     copycat = !copycat;
                     chat(config.channel, "Copycat now " + copycat.ToString());
+                }
+
+                if (datal.Contains("functions") && datal.Contains("parzibot"))
+                {
+                    chat(config.channel, "My functions:");
+                    chat(config.channel, "\\");
+                    string[] f = { "Time: just ask what time it is", "Copycat: 'parzibot copycat'", "Ping: 'parzibot, ping <server>'", "Power Level: 'parzibot, what's the power level' or similar", "Leave: 'parzibot, leave irc' or similar"};
+                    foreach (string func in f)
+                    {
+                        chat(config.channel, " |- " + func);
+                    }
                 }
 
                 if (copycat)
@@ -167,7 +179,7 @@ namespace IRCBot
                     }
                 }
 
-                if (datal.Contains("parzibot") && (datal.Contains("leave") && datal.Contains("quit")) && (datal.Contains("irc") || datal.Contains("channel") || datal.Contains("chat")))
+                if (datal.Contains("parzibot") && (datal.Contains("leave") || datal.Contains("quit")) && (datal.Contains("irc") || datal.Contains("channel") || datal.Contains("chat")))
                 {
                     sendData("QUIT", null);
                     shouldRun = false;
