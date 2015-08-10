@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="IRCBot.cs" />
     <Compile Include="IRCConfig.cs" />
+    <Compile Include="IRCResponse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
