@@ -13,3 +13,8 @@ C:\Users\Colby\Desktop\GitHub\IRCBot\IRCBot\obj\x86\Debug\IRCBot.pdb
 C:\Users\Colby\Desktop\GitHub\IRCBot\IRCBot\bin\Debug\IRCBot.exe
 C:\Users\Colby\Desktop\GitHub\IRCBot\IRCBot\bin\Debug\IRCBot.pdb
 C:\Users\Colby\Desktop\GitHub\IRCBot\IRCBot\obj\x86\Debug\IRCBot.csprojResolveAssemblyReference.cache
+F:\GitHub\IRCBot\IRCBot\obj\x86\Debug\IRCBot.exe
+F:\GitHub\IRCBot\IRCBot\obj\x86\Debug\IRCBot.pdb
+F:\GitHub\IRCBot\IRCBot\bin\Debug\IRCBot.exe
+F:\GitHub\IRCBot\IRCBot\bin\Debug\IRCBot.pdb
+F:\GitHub\IRCBot\IRCBot\obj\x86\Debug\IRCBot.csprojResolveAssemblyReference.cache
